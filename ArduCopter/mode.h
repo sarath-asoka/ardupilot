@@ -39,7 +39,7 @@ public:
         AUTOROTATE =   26,  // Autonomous autorotation
         AUTO_RTL =     27,  // Auto RTL, this is not a true mode, AUTO will report as this mode if entered to perform a DO_LAND_START Landing sequence
         TURTLE =       28,  // Flip over after crash
-	SPIRAL =       29,  // New mode added by sarath
+        SPIRAL =       29,  // New mode added by sarath
 	
         // Mode number 127 reserved for the "drone show mode" in the Skybrush
         // fork at https://github.com/skybrush-io/ardupilot
@@ -1921,10 +1921,11 @@ private:
     void warning_message(uint8_t message_n);    //Handles output messages to the terminal
 
 };
-
+#endif
 /*
 New mode SPIRAL created by sarath. It will be similar to alt_hold mode
 */
+#if MODE_SPIRAL_ENABLED == ENABLED
 class ModeSpiral : public Mode {
 
 public:
@@ -1933,7 +1934,8 @@ public:
     Number mode_number() const override { return Number::SPIRAL; }
     bool init(bool ignore_checks) override;
     void run() override;
-    bool allows_arming(AP_Arming::Method method) const override;
+    //bool allows_arming(AP_Arming::Method method) const override;
+    bool allows_arming(AP_Arming::Method method) const override { return method == AP_Arming::Method::MAVLINK; }
     
     bool requires_GPS() const override { return false; }
     bool has_manual_throttle() const override { return false; }
