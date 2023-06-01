@@ -175,6 +175,14 @@ Mode *Copter::mode_from_mode_num(const Mode::Number mode)
             break;
 #endif
 
+
+//spiral mode enable by sarath
+#if MODE_SPIRAL_ENABLED == ENABLED
+        case Mode::Number::SPIRAL:
+            ret = &mode_spiral;
+            break;
+#endif
+
         default:
             break;
     }

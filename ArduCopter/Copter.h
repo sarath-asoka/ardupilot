@@ -226,7 +226,8 @@ public:
     friend class ModeZigZag;
     friend class ModeAutorotate;
     friend class ModeTurtle;
-
+    friend class ModeSpiral; // added by sarath
+    
     Copter(void);
 
 private:
@@ -1023,6 +1024,11 @@ private:
 #endif
 #if MODE_TURTLE_ENABLED == ENABLED
     ModeTurtle mode_turtle;
+#endif
+
+// spiral mode added by sarath
+#if MODE_SPIRAL_ENABLED == ENABLED
+    ModeSpiral mode_spiral;
 #endif
 
     // mode.cpp
