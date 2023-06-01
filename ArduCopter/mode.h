@@ -1933,7 +1933,8 @@ public:
     Number mode_number() const override { return Number::SPIRAL; }
     bool init(bool ignore_checks) override;
     void run() override;
-
+    bool allows_arming(AP_Arming::Method method) const override;
+    
     bool requires_GPS() const override { return false; }
     bool has_manual_throttle() const override { return false; }
     bool is_autopilot() const override { return true; }

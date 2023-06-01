@@ -226,7 +226,7 @@ public:
     friend class ModeZigZag;
     friend class ModeAutorotate;
     friend class ModeTurtle;
-    friend class ModeSpiral; // added by sarath
+    friend class ModeSpiral;     // added by sarath
     
     Copter(void);
 
