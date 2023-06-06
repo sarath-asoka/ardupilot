@@ -6,7 +6,6 @@ Description : New mode spiral will imitate alt_hold mode.
 
 #include "Copter.h"
 
-//#if MODE_SPIRAL_ENABLED == ENABLED
 /*
  * Init and run calls for spiral flight mode
  */
@@ -17,7 +16,7 @@ bool ModeSpiral::init(bool ignore_checks)
     return true;
 }
 
-// stabilize_run - runs the main stabilize controller
+// spiral_run - runs the main spiral controller
 // should be called at 100hz or more
 void ModeSpiral::run()
 {
@@ -76,4 +75,4 @@ void ModeSpiral::run()
     // output pilot's throttle
     attitude_control->set_throttle_out(pilot_desired_throttle, true, g.throttle_filt);
 }
-//#endif
+

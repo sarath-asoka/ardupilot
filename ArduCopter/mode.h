@@ -1935,7 +1935,8 @@ public:
     bool init(bool ignore_checks) override;
     void run() override;
     //bool allows_arming(AP_Arming::Method method) const override;
-    bool allows_arming(AP_Arming::Method method) const override { return method == AP_Arming::Method::MAVLINK; }
+    bool allows_arming(AP_Arming::Method method) const override { return true; };
+//    bool allows_arming(AP_Arming::Method method) const override { return method == AP_Arming::Method::MAVLINK; }
     
     bool requires_GPS() const override { return false; }
     bool has_manual_throttle() const override { return false; }
